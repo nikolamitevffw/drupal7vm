@@ -7,8 +7,8 @@ vagrant_synced_folder_default_type: nfs
 
 # If you need to run multiple instances of Drupal VM, set a unique hostname,
 # machine name, and IP address for each instance.
-vagrant_hostname: cst.dev
-vagrant_machine_name: cstvm
+vagrant_hostname: drupal7vm.dev
+vagrant_machine_name: drupal7vm
 vagrant_ip: 192.168.88.88
 
 # Allow Drupal VM to be accessed via a public network interface on your host.
@@ -23,12 +23,12 @@ vagrant_synced_folders:
   # The first synced folder will be used for the default Drupal installation, if
   # build_makefile: is 'true'. By default it's set to the drupal-vm folder.
   - local_path: .
-    destination: /var/www/cst
+    destination: /var/www/drupal7
     type: nfs
     create: true
 
 # Memory and CPU to use for this VM.
-vagrant_memory: 1024
+vagrant_memory: 4096
 vagrant_cpus: 2
 
 # The web server software to use. Can be either 'apache' or 'nginx'.
@@ -46,9 +46,9 @@ install_site: true
 # Settings for building a Drupal site from a makefile (if 'build_makefile:'
 # is 'true').
 drupal_major_version: 7
-drupal_core_path: "/var/www/cst/docroot"
+drupal_core_path: "/var/www/drupal7vm/docroot"
 drupal_domain: "{{ vagrant_hostname }}"
-drupal_site_name: "CST"
+drupal_site_name: "drupal7vm"
 drupal_install_profile: standard
 drupal_enable_modules: [ 'devel' ]
 drupal_account_name: admin
